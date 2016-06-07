@@ -1,0 +1,30 @@
+doctype html
+html(lang='ko')
+  head
+    meta(character='utf-8')
+    title Jade Study
+  body
+    h1 Jade - Case
+    
+    - var friends = 10
+    case friends
+      when 0
+        p you have no friends
+      when 1
+        p you have a friend
+      default
+        p you have #{friends} friends
+    
+    - var friends = 0
+    case friends
+      when 0
+      when 1
+        p you have very few friend
+      default
+        p you have #{friends} friends
+    
+    - var friends = 1
+    case friends
+      when 0: p you have no friends
+      when 1: p you have a friend
+      default: p you have #{friends} friends

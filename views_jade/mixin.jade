@@ -1,0 +1,53 @@
+doctype html
+html(lang='ko')
+  head
+    meta(character='utf-8')
+    title Jade Study
+  body
+    h1 Jade - Mixin
+    
+    mixin list
+      ul
+        each val in ['foo', 'bar', 'baz']
+          li= val
+    
+    +list
+    +list
+    
+    mixin pet(name)
+      li.pet= name
+    ul
+      +pet('cat')
+      +pet('dog')
+      +pet('pig')
+    
+    mixin article(title)
+      .article
+        block
+        .article-wrapper
+          h1= title
+          if block
+            block
+          else
+            p No contente provided
+    
+    +article('Hello world')
+      p this is my
+      p Amazing article
+    
+    mixin link(href, name)
+      a(class=attributes.cls href=href)= name
+    
+    +link('/foo', 'foo')(cls='btn')
+    
+    mixin list(id, ...items)
+      ul(id=id)
+        each item in items
+          li= item
+    
+    +list('my-list', 1, 2, 3, 4)
+    
+    p.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      
+    | Plain text include <strong>html</strong>

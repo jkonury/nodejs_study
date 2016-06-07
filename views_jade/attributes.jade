@@ -1,0 +1,26 @@
+doctype html
+html(lang='ko')
+  head
+    meta(character='utf-8')
+    title Jade Study
+  body
+    h1 Jade - Attributes
+    
+    - var authenticated = false
+    a(href='/google.com' class=authenticated ? 'btn' : '') Google 
+    br
+    input(type='checkbox' name='agreement' checked)
+    div(escaped='<code>') escaped
+    div(escaped!='<code>') unescaped
+    
+    a(style={color: 'red', background: 'green'}) style attributes
+    br
+    - var classes = ['foo', 'bar']
+    
+    a(class=classes) classes
+    br
+    a.bing(class=['foo', 'bar'])
+    
+    - currentUrl = '/about'
+    a(class={active: currentUrl === '/'} href='/') Home
+    a(class={active: currentUrl === '/about'} href='/about') Home

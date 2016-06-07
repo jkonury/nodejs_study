@@ -1,0 +1,32 @@
+doctype html
+html(lang='ko')
+  head
+    meta(character='utf-8')
+    title Jade Study
+  body
+    h1 Jade - Iteration
+    
+    ul
+      each value in [1, 2, 3, 4, 5]
+        li= value
+      
+      each value in [1, 2, 3, 4, 5]
+        li= value
+    
+    ul
+      each val, index in ['zero', 'one', 'two']
+        li= index + ': ' + val
+    
+    ul
+      each val, index in {1: 'one', 2: 'two', 3: 'three'}
+        li= li= index + ': ' + val
+    
+    - var values = []
+    ul
+      each val in values.length ? values : ['There are no values']
+        li= val
+    
+    - var n = 0
+    ul
+      while n < 4
+        li= n++
